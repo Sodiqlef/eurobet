@@ -1,0 +1,600 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+
+
+</div>
+<!-- Button trigger modal -->
+<button style="position: fixed; bottom: 0; right: 0;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Betslip
+</button>
+
+    <center><input type="text" id="acf" onchange="changeHandler()" placeholder="Input your bank details"></center><br>
+    <small style="color: red;" >Click on each match to expand selection*</small>
+<!-- Division one league -->
+{% if d1 %}
+<div class="container ">
+    <br>
+    <button class="btn btn-success  dropdown-toggle"  data-bs-toggle="collapse" data-bs-target="#Division1" aria-expanded="false" aria-controls="collapseExample">
+            <b>Division 1 League <i class="fas fa-fw "></i></b></button><br>
+            
+                
+    {% for bet in bets %}
+    
+    {% if bet.competition == "Division 1 League" %}
+    
+    
+    
+        <a type="button" class="btn games-link " data-bs-toggle="modal" data-bs-target="#exampleModal{{bet.pk}}"><div class="row container-fluid collapse show" id="Division1" >
+            
+            <div class="col-sm rounded m-2" style="background-color: white;">
+                <div class="row mt-2">
+                    <strong id="clicked{{bet.pk}}" aria-hidden="true" style="font-size: 33px;"></strong>
+                    <div class="col ">
+                        <center><img src="{{bet.home_name.image.url}}" width="33"><br>
+                        <b>{{bet.home_name.name}}</b><br>
+
+                            </center>
+                    </div>
+                    <div class="col mt-2" ><center ><small>{{bet.date.date}} <br> {{bet.date.time}}</small>
+
+                    </center></div>
+                    <div class="col">
+                        <center><img src="{{bet.away_name.image.url}}" width="33"><br>
+                        <b>{{bet.away_name.name}}</b><br>
+
+                        </center>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                </div>
+            </div>
+
+        </div></a>
+    {% include './gamesmodal.html' %}
+    
+    {% else %}
+    
+    {% endif %}
+    {% endfor %}
+  
+
+    
+
+    </div>
+{% endif %}
+
+
+<!-- Division Two league -->
+{% if d2 %}
+<div class="container ">
+    <br>
+    <button class="btn btn-success  dropdown-toggle"  data-bs-toggle="collapse" data-bs-target="#Division2" aria-expanded="false" aria-controls="collapseExample">
+            <b>Division 2 League <i class="fas fa-fw "></i></b></button><br>
+            
+                
+    {% for bet in bets %}
+    
+    {% if bet.competition == "Division 2 League" %}
+    
+    
+    
+        <a type="button" class="btn games-link " data-bs-toggle="modal" data-bs-target="#exampleModal{{bet.pk}}"><div class="row container-fluid collapse show" id="Division2" >
+            
+            <div class="col-sm rounded m-2" style="background-color: white;">
+                <div class="row mt-2">
+                    <strong id="clicked{{bet.pk}}" aria-hidden="true" style="font-size: 33px;"></strong>
+                    <div class="col ">
+                        <center><img src="{{bet.home_name.image.url}}" width="33"><br>
+                        <b>{{bet.home_name.name}}</b><br>
+
+                            </center>
+                    </div>
+                    <div class="col mt-2" ><center ><small>{{bet.date.date}} <br> {{bet.date.time}}</small>
+
+                    </center></div>
+                    <div class="col">
+                        <center><img src="{{bet.away_name.image.url}}" width="33"><br>
+                        <b>{{bet.away_name.name}}</b><br>
+
+                        </center>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                </div>
+            </div>
+
+        </div></a>
+    {% include './gamesmodal.html' %}
+    
+    {% endif %}
+    {% endfor %}
+  
+
+    
+
+    </div>
+{% endif %}
+
+
+<!-- Division one league cup -->
+{% if d1c %}
+<div class="container ">
+    <br>
+    <button class="btn btn-success  dropdown-toggle"  data-bs-toggle="collapse" data-bs-target="#Division1Cup" aria-expanded="false" aria-controls="collapseExample">
+            <b>League Cup, Division 1 <i class="fas fa-fw "></i></b></button><br>
+            
+                
+    {% for bet in bets %}
+    
+    {% if bet.competition == "League Cup, Division 1" %}
+    
+    
+    
+        <a type="button" class="btn games-link " data-bs-toggle="modal" data-bs-target="#exampleModal{{bet.pk}}"><div class="row container-fluid collapse show" id="Division1Cup" >
+            
+            <div class="col-sm rounded m-2" style="background-color: white;">
+                <div class="row mt-2">
+                    <strong id="clicked{{bet.pk}}" aria-hidden="true" style="font-size: 33px;"></strong>
+                    <div class="col ">
+                        <center><img src="{{bet.home_name.image.url}}" width="33"><br>
+                        <b>{{bet.home_name.name}}</b><br>
+
+                            </center>
+                    </div>
+                    <div class="col mt-2" ><center ><small>{{bet.date.date}} <br> {{bet.date.time}}</small>
+
+                    </center></div>
+                    <div class="col">
+                        <center><img src="{{bet.away_name.image.url}}" width="33"><br>
+                        <b>{{bet.away_name.name}}</b><br>
+
+                        </center>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                </div>
+            </div>
+
+        </div></a>
+    {% include './gamesmodal.html' %}
+    
+    {% endif %}
+    {% endfor %}
+  
+
+    
+
+    </div>
+{% endif %}
+
+
+<!-- Division Two league cup -->
+{% if d2c %}
+<div class="container ">
+    <br>
+    <button class="btn btn-success  dropdown-toggle"  data-bs-toggle="collapse" data-bs-target="#Division2Cup" aria-expanded="false" aria-controls="collapseExample">
+            <b>League Cup, Division 2 <i class="fas fa-fw "></i></b></button><br>
+            
+                
+    {% for bet in bets %}
+    
+    {% if bet.competition == "League Cup, Division 2" %}
+    
+    
+    
+        <a type="button" class="btn games-link " data-bs-toggle="modal" data-bs-target="#exampleModal{{bet.pk}}"><div class="row container-fluid collapse show" id="Division2Cup" >
+            
+            <div class="col-sm rounded m-2" style="background-color: white;">
+                <div class="row mt-2">
+                    <strong id="clicked{{bet.pk}}" aria-hidden="true" style="font-size: 33px;"></strong>
+                    <div class="col ">
+                        <center><img src="{{bet.home_name.image.url}}" width="33"><br>
+                        <b>{{bet.home_name.name}}</b><br>
+
+                            </center>
+                    </div>
+                    <div class="col mt-2" ><center ><small>{{bet.date.date}} <br> {{bet.date.time}}</small>
+
+                    </center></div>
+                    <div class="col">
+                        <center><img src="{{bet.away_name.image.url}}" width="33"><br>
+                        <b>{{bet.away_name.name}}</b><br>
+
+                        </center>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                </div>
+            </div>
+
+        </div></a>
+    {% include './gamesmodal.html' %}
+    
+    {% endif %}
+    {% endfor %}
+  
+
+    
+
+    </div>
+{% endif %}
+
+<!-- Champions League -->
+{% if cl %}
+<div class="container ">
+    <br>
+    <button class="btn btn-success  dropdown-toggle"  data-bs-toggle="collapse" data-bs-target="#ChampionsLeague" aria-expanded="false" aria-controls="collapseExample">
+            <b>Champions League <i class="fas fa-fw "></i></b></button><br>
+            
+                
+    {% for bet in bets %}
+    
+    {% if bet.competition == "Champions League" %}
+    
+    
+    
+        <a type="button" class="btn games-link " data-bs-toggle="modal" data-bs-target="#exampleModal{{bet.pk}}"><div class="row container-fluid collapse show" id="ChampionsLeague" >
+            
+            <div class="col-sm rounded m-2" style="background-color: white;">
+                <div class="row mt-2">
+                    <strong id="clicked{{bet.pk}}" aria-hidden="true" style="font-size: 33px;"></strong>
+                    <div class="col ">
+                        <center><img src="{{bet.home_name.image.url}}" width="33"><br>
+                        <b>{{bet.home_name.name}}</b><br>
+
+                            </center>
+                    </div>
+                    <div class="col mt-2" ><center ><small>{{bet.date.date}} <br> {{bet.date.time}}</small>
+
+                    </center></div>
+                    <div class="col">
+                        <center><img src="{{bet.away_name.image.url}}" width="33"><br>
+                        <b>{{bet.away_name.name}}</b><br>
+
+                        </center>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                </div>
+            </div>
+
+        </div></a>
+    {% include './gamesmodal.html' %}
+    
+    {% endif %}
+    {% endfor %}
+  
+
+    
+
+    </div>
+{% endif %}
+
+
+
+<!-- Europa League -->
+{% if el %}
+<div class="container ">
+    <br>
+    <button class="btn btn-success  dropdown-toggle"  data-bs-toggle="collapse" data-bs-target="#EuropaLeague" aria-expanded="false" aria-controls="collapseExample">
+            <b>Europa League <i class="fas fa-fw "></i></b></button><br>
+            
+                
+    {% for bet in bets %}
+    
+    {% if bet.competition == "Europa League" %}
+    
+    
+    
+        <a type="button" class="btn games-link " data-bs-toggle="modal" data-bs-target="#exampleModal{{bet.pk}}"><div class="row container-fluid collapse show" id="EuropaLeague" >
+            
+            <div class="col-sm rounded m-2" style="background-color: white;">
+                <div class="row mt-2">
+                    <strong id="clicked{{bet.pk}}" aria-hidden="true" style="font-size: 33px;"></strong>
+                    <div class="col ">
+                        <center><img src="{{bet.home_name.image.url}}" width="33"><br>
+                        <b>{{bet.home_name.name}}</b><br>
+
+                            </center>
+                    </div>
+                    <div class="col mt-2" ><center ><small>{{bet.date.date}} <br> {{bet.date.time}}</small>
+
+                    </center></div>
+                    <div class="col">
+                        <center><img src="{{bet.away_name.image.url}}" width="33"><br>
+                        <b>{{bet.away_name.name}}</b><br>
+
+                        </center>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                </div>
+            </div>
+
+        </div></a>
+    {% include './gamesmodal.html' %}
+    
+    {% endif %}
+    {% endfor %}
+  
+
+    
+
+    </div>
+{% endif %}
+
+<!-- Super Cup -->
+{% if sc %}
+<div class="container ">
+    <br>
+    <button class="btn btn-success  dropdown-toggle"  data-bs-toggle="collapse" data-bs-target="#SuperCup" aria-expanded="false" aria-controls="collapseExample">
+            <b>Super Cup <i class="fas fa-fw "></i></b></button><br>
+            
+                
+    {% for bet in bets %}
+    
+    {% if bet.competition == "Super Cup" %}
+    
+    
+    
+        <a type="button" class="btn games-link " data-bs-toggle="modal" data-bs-target="#exampleModal{{bet.pk}}"><div class="row container-fluid collapse show" id="SuperCup" >
+            
+            <div class="col-sm rounded m-2" style="background-color: white;">
+                <div class="row mt-2">
+                    <strong id="clicked{{bet.pk}}" aria-hidden="true" style="font-size: 33px;"></strong>
+                    <div class="col ">
+                        <center><img src="{{bet.home_name.image.url}}" width="33"><br>
+                        <b>{{bet.home_name.name}}</b><br>
+
+                            </center>
+                    </div>
+                    <div class="col mt-2" ><center ><small>{{bet.date.date}} <br> {{bet.date.time}}</small>
+
+                    </center></div>
+                    <div class="col">
+                        <center><img src="{{bet.away_name.image.url}}" width="33"><br>
+                        <b>{{bet.away_name.name}}</b><br>
+
+                        </center>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                    <div class=" col bg-lightgrey rounded m-2 text-center">
+                                <p class="m-0"><small>Total Wins </small></p>
+                                <p class="m-0"><small ><b>10</b></small></p>
+                            </div>
+                </div>
+            </div>
+
+        </div></a>
+    {% include './gamesmodal.html' %}
+    
+    {% endif %}
+    {% endfor %}
+  
+
+    
+
+    </div>
+{% endif %}
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Bet Slip </h5>           
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" >
+            <div id="slip">
+                Account Details: <b id="account"></b>
+            {% for bet in bets %}
+            
+                <p id="game{{bet.pk}}" class="rounded"></p>
+
+                
+            
+            {% endfor %}
+        </div>
+            {% csrf_token %}
+            <button type="button" onclick="printBetSlip()" class="btn btn-primary" data-bs-dismiss="modal">Download</button>
+            
+            <h4 class="float-end bg-success rounded p-1 text-light" id="odds">0</h4>
+        </div>
+        <small style="color: red;"><center>Kindly download your betslip*</center></small>
+        <div class="modal-footer">
+            
+            
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a type="button" id="placeBet" href="wa.me/2349060326055" class="btn btn-success" >Share Admin</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
+{% block script %}
+{% for bet in bets %}
+<script>
+    function check{{bet.pk}}(game, myVal) {
+
+        val = document.getElementById("game{{bet.pk}}")
+        val.innerHTML = game
+        val.style.border = "2px solid green"
+        val.style.padding = "10px"
+        document.getElementById("clicked{{bet.pk}}").className = "fa fa-check text-danger"
+        if (document.getElementById('home{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('home{{bet.pk}}').value)  
+        }
+        else if (document.getElementById('draw{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('draw{{bet.pk}}').value) 
+        }
+        else if (document.getElementById('away{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('away{{bet.pk}}').value)
+        }
+        else if (document.getElementById('home.{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('home.{{bet.pk}}').value)
+        }
+        else if (document.getElementById('draw.{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('draw.{{bet.pk}}').value)
+        }
+        else if (document.getElementById('away.{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('away.{{bet.pk}}').value)
+        }
+        else if (document.getElementById('yes{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('yes{{bet.pk}}').value)
+        }
+        else if (document.getElementById('no{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('no{{bet.pk}}').value)
+        }
+        else if (document.getElementById('yes.{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('yes.{{bet.pk}}').value)
+        }
+        else if (document.getElementById('no.{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('no.{{bet.pk}}').value)
+        }
+        else if (document.getElementById('hover{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('hover{{bet.pk}}').value)
+        }
+        else if (document.getElementById('hunder{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('hunder{{bet.pk}}').value)
+        }
+        else if (document.getElementById('aover{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('aover{{bet.pk}}').value)
+        }
+        else if (document.getElementById('aunder{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('aunder{{bet.pk}}').value)
+        }
+        else if (document.getElementById('yco{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('yco{{bet.pk}}').value)
+        }
+        else if (document.getElementById('ycu{{bet.pk}}').value === myVal){
+            mul = parseFloat(document.getElementById('ycu{{bet.pk}}').value)
+        }
+       
+        document.getElementById('odds').innerHTML = parseFloat(document.getElementById('odds').innerHTML) + mul
+        console.log(document.getElementById('odds').innerHTML)
+
+    } 
+</script>
+
+<script>
+    function reset{{bet.pk}}() {
+        val = document.getElementById("game{{bet.pk}}")
+        val.innerHTML = ''
+        document.getElementById("clicked{{bet.pk}}").className = ""
+        val.style.borderStyle = "none"
+        val.style.padding = "0px"
+        
+    } 
+</script>
+
+<script>
+    function printBetSlip() {
+        el = document.getElementById('slip').innerHTML
+        a = window.open('', '', 'height=2000, width=500')
+        a.document.write(el)
+        a.print()
+        
+    } 
+</script>
+
+<script>
+    function changeHandler() {
+        document.getElementById('account').innerHTML = document.getElementById('acf').value
+        
+    } 
+</script>
+{% endfor %}
+{% endblock %}
+
+

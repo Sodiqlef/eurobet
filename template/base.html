@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>EUROBET - Sports online betting</title>
+
+        <link rel="icon" href="{% static 'images/eurosport.jpg' %}" type="image/icon type">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <!-- Page links -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+        <link rel="stylesheet" href="{% static 'css/eurobet.css' %}?{% now 'U' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.css' %}">
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+        
+
+    </head>
+
+    <body>
+
+    <!-- ***** Preloader Start ***** -->
+        <div id="js-preloader" class="js-preloader">
+            <div class="preloader-inner">
+                <span class="dot"></span>
+                <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+  <!-- ***** Preloader End ***** -->
+
+
+
+    <!-- ***** Banner Start ***** -->
+    <div class="main-banner">
+        <h1 style="top: 0; color: white; position: sticky;">EUROSPORT BET</h1>
+        <div class="row banner-pad">
+          <div class="col-lg-7">
+            <div class="header-text">
+                <h4>Play and win on all possible selections in the eurosport game</h4>
+              <button class="btn btn-info">Bet Now</button>
+              <div class="main-button">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <!-- ***** Banner End ***** -->
+
+
+
+
+    {% block content %}
+    {% endblock %}
+            <!-- Scripts -->
+        <!-- Bootstrap core JavaScript -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+        <script src="{% static 'js/isotope.min.js' %}"></script>
+        <script src="{% static 'js/owl-carousel.js' %}"></script>
+        <script src="{% static 'js/tabs.js' %}"></script>
+        <script src="{% static 'js/popup.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+    {% block script %}
+
+    {% endblock %}
+
+    </body>
+</html>

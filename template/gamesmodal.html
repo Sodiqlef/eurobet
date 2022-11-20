@@ -1,0 +1,259 @@
+<!-- Modal -->
+
+<div class="modal fade " id="exampleModal{{bet.pk}}" tabindex="-1" aria-labelledby="exampleModalLabel{{bet.pk}}" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="exampleModalLabel{{bet.pk}}">{{bet.home_name.name |upper}} VS {{bet.away_name.name| upper}}</h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+          
+    <p >All Odd List</p>
+    <div class="row ">
+        <!-- *** WHO WILL WIN THE MATCH ***-->
+        <div class="bg-light col-sm-auto p-2 m-2 rounded">
+                <strong id="win">>Who will win the match?</strong><br><br>
+            <div class="row">
+
+                <div class="col text-center mx-2 rounded bg-lightgrey">
+                    Home<br>
+                    {{bet.home}}
+                    <input type="radio" id="home{{bet.pk}}" onclick="check{{bet.pk}}(
+                        (document.getElementById('win').innerHTML +
+                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' 
+                        + '<b>HOME</b>' + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' + 
+                        `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
+                        value="{{bet.home}}" name="game{{bet.pk}}" >
+                </div>
+
+                <div class="col mx-2 text-center rounded bg-lightgrey">
+                    Draw<br>
+                    {{bet.draw}}
+                    <input type="radio" id="draw{{bet.pk}}" onclick="check{{bet.pk}}(
+                        (document.getElementById('win').innerHTML + 
+                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>'
+                        + '<b>DRAW</b>' + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' 
+                        + `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
+                        value="{{bet.draw}}" name="game{{bet.pk}}">
+                </div>
+
+                <div class="col mx-2 text-center rounded bg-lightgrey">
+                        Away<br>
+                    {{bet.away}}
+                        <input type="radio" id="away{{bet.pk}}" onclick="check{{bet.pk}}(
+                            (document.getElementById('win').innerHTML +
+                            '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>'
+                            + '<b>AWAY </b>' + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                                `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"
+                                value="{{bet.away}}" name="game{{bet.pk}}">
+                </div>
+            </div>
+        </div>
+
+        <!-- *** WHO WILL WIN THE FIRST HALF ***-->
+        <div class="bg-light col-sm-auto p-2 m-2 rounded">
+            <strong id="winH">>Who will win the First Half?</strong><br><br>
+            <div class="row">
+                <div class="col text-center mx-2 rounded bg-lightgrey">
+                    Home<br>
+                    {{bet.home_h1}}
+                    <input type="radio" id="home.{{bet.pk}}" onclick="check{{bet.pk}}(
+                    (document.getElementById('winH').innerHTML +
+                    '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                    '<b>HOME </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                        `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"
+                        value="{{bet.home_h1}}" name="game{{bet.pk}}">
+                </div>
+                <div class="col mx-2 text-center rounded bg-lightgrey">
+                    Draw<br>
+                    {{bet.draw_h1}}
+                    <input type="radio" id="draw.{{bet.pk}}" onclick="check{{bet.pk}}(
+                    (document.getElementById('winH').innerHTML +
+                    '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                    '<b>DRAW </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                        `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
+                        value="{{bet.draw_h1}}" name="game{{bet.pk}}">
+                </div>
+                <div class="col mx-2 text-center rounded bg-lightgrey">
+                        Away<br>
+                    {{bet.away_h1}}
+                        <input type="radio" id="away.{{bet.pk}}" onclick="check{{bet.pk}}(
+                        (document.getElementById('winH').innerHTML +
+                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                        '<b>AWAY </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                            `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
+                            value="{{bet.away_h1}}" name="game{{bet.pk}}">
+                </div>
+                
+            </div>
+        </div>
+
+        <!--- *** HOME CLEAN SHEET ***-->
+        <div class="bg-light col-sm-auto p-2 m-2 rounded">
+            <strong id="homecs">>Home Clean sheet?</strong><br><br>
+            <div class="row">
+                <div class="col text-center mx-2 rounded bg-lightgrey">
+                    Yes<br>
+                    {{bet.home_cleansheet_yes}}
+                    <input type="radio" id="yes{{bet.pk}}" onclick="check{{bet.pk}}(
+                        (document.getElementById('homecs').innerHTML +
+                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                        '<b>YES </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                        `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"
+                        value="{{bet.home_cleansheet_yes}}" name="game{{bet.pk}}">
+                </div>
+                
+                <div class="col mx-2 text-center rounded bg-lightgrey">
+                        No<br>
+                    {{bet.home_cleansheet_no}}
+                        <input type="radio" id="no{{bet.pk}}" onclick="check{{bet.pk}}(
+                            (document.getElementById('homecs').innerHTML +
+                            '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                            '<b>NO </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                            `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
+                            value="{{bet.home_cleansheet_no}}" name="game{{bet.pk}}">
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- *** AWAY CLEAN SHEET ***-->
+        <div class="bg-light col-sm-auto p-2 m-2 rounded">
+            <strong id="awaycs">>Away Clean sheet?</strong><br><br>
+            <div class="row">
+            <div class="col text-center mx-2 rounded bg-lightgrey">
+                Yes<br>
+                {{bet.away_cleansheet_yes}}
+                <input type="radio" id="yes.{{bet.pk}}" onclick="check{{bet.pk}}(
+                    (document.getElementById('awaycs').innerHTML +
+                    '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                    '<b>YES </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                     `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"  
+                     value="{{bet.away_cleansheet_yes}}" name="game{{bet.pk}}">
+            </div>
+            
+                <div class="col mx-2 text-center rounded bg-lightgrey">
+                    No<br>
+                {{bet.away_cleansheet_no}}
+                    <input type="radio" id="no.{{bet.pk}}" onclick="check{{bet.pk}}(
+                        (document.getElementById('awaycs').innerHTML +
+                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                        '<b>NO </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                         `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
+                         value="{{bet.away_cleansheet_no}}" name="game{{bet.pk}}">
+            </div>
+            
+                </div>
+        </div>
+
+        <!--- *** HOME Over 2.5 ***-->
+        <div class="bg-light col-sm-auto p-2 m-2 rounded">
+            <strong id="hoverunder">>Home Score Over 2.5?</strong><br><br>
+            <div class="row">
+                <div class="col text-center mx-2 rounded bg-lightgrey">
+                    Yes<br>
+                    {{bet.score_home_over_yes}}
+                    <input type="radio" id="hover{{bet.pk}}" onclick="check{{bet.pk}}(
+                        (document.getElementById('hoverunder').innerHTML +
+                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                        '<b>YES </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                        `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"
+                        value="{{bet.score_home_over_yes}}" name="game{{bet.pk}}">
+                </div>
+                
+                <div class="col mx-2 text-center rounded bg-lightgrey">
+                        No<br>
+                    {{bet.score_home_over_no}}
+                        <input type="radio" id="hunder{{bet.pk}}" onclick="check{{bet.pk}}(
+                            (document.getElementById('hoverunder').innerHTML +
+                            '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                            '<b>NO </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                            `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
+                            value="{{bet.score_home_over_no}}" name="game{{bet.pk}}">
+                </div>
+                
+            </div>
+        </div>
+
+        <!--- *** AWAY Over 2.5 ***-->
+        <div class="bg-light col-sm-auto p-2 m-2 rounded">
+            <strong id="aoverunder">>Away Score Over 2.5?</strong><br><br>
+            <div class="row">
+                <div class="col text-center mx-2 rounded bg-lightgrey">
+                    Yes<br>
+                    {{bet.score_away_over_yes}}
+                    <input type="radio" id="aover{{bet.pk}}" onclick="check{{bet.pk}}(
+                        (document.getElementById('aoverunder').innerHTML +
+                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                        '<b>YES </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                        `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"
+                        value="{{bet.score_away_over_yes}}" name="game{{bet.pk}}">
+                </div>
+                
+                <div class="col mx-2 text-center rounded bg-lightgrey">
+                        No<br>
+                    {{bet.score_away_over_no}}
+                        <input type="radio" id="aunder{{bet.pk}}" onclick="check{{bet.pk}}(
+                            (document.getElementById('aoverunder').innerHTML +
+                            '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                            '<b>NO </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                            `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
+                            value="{{bet.score_home_over_no}}" name="game{{bet.pk}}">
+                </div>
+                
+            </div>
+        </div>
+
+        <!--- *** Yello Card 1.5 ***-->
+        <div class="bg-light col-sm-auto p-2 m-2 rounded">
+            <strong id="totalyc">>Yellow Card Over 1.5?</strong><br><br>
+            <div class="row">
+                <div class="col text-center mx-2 rounded bg-lightgrey">
+                    Yes<br>
+                    {{bet.total_yc_over_yes}}
+                    <input type="radio" id="yco{{bet.pk}}" onclick="check{{bet.pk}}(
+                        (document.getElementById('totalyc').innerHTML +
+                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                        '<b>YES </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                        `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"
+                        value="{{bet.total_yc_over_yes}}" name="game{{bet.pk}}">
+                </div>
+                
+                <div class="col mx-2 text-center rounded bg-lightgrey">
+                        No<br>
+                    {{bet.total_yc_over_no}}
+                        <input type="radio" id="ycu{{bet.pk}}" onclick="check{{bet.pk}}(
+                            (document.getElementById('totalyc').innerHTML +
+                            '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                            '<b>NO </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
+                            `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
+                            value="{{bet.total_yc_over_no}}" name="game{{bet.pk}}">
+                </div>
+                
+            </div>
+        </div>
+        
+
+
+
+
+                    
+
+    </div>
+        
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+        <input type="reset" class="btn btn-outline-success" value="Clear Selection" onclick="reset{{bet.pk}}()">
+      </div>
+      
+    </div>
+  </div>
+</div>
