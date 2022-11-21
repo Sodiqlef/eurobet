@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block button %}
+<a class="btn btn-info" href="{% url 'home' %}">Bet Now</a>
+{% endblock %}
+
+{% block content %}
+<center>
+    <form action="{% url 'result' %}">
+        <input type="search" placeholder="Search a team name" name="match">
+        <input type="submit" class="btn btn-success">
+    </form> </center><br>
+    {% for bet in bets %}
+    <div class="container">
+        <div class="col-sm rounded m-2" style="background-color: white;">
+            <div class="row mt-2">
+                <strong id="clicked{{bet.pk}}" aria-hidden="true" style="font-size: 33px;"></strong>
+                <div class="col ">
+                    <center><img src="{{bet.home_name.image.url}}" width="33"><br>
+                    <b>{{bet.home_name.name}}</b><br>
+    
+                        </center>
+                </div>
+                <div class="col result-score" ><center >
+                    <small > {{bet.home_ft}}<i class="fas fa-fw"></i> - <i class="fas fa-fw"></i> {{bet.away_ft}}</small>
+                </center></div>
+                <div class="col">
+                    <center><img src="{{bet.away_name.image.url}}" width="33"><br>
+                    <b>{{bet.away_name.name}}</b><br>
+    
+                    </center>
+                </div>
+            </div>
+            <div class="row">
+    
+    </div>
+        </div>
+    </div>
+    
+    {% endfor %}
+    <div class="main-button">
+        {% include 'pagination.html' %}
+      </div>
+{% endblock %}

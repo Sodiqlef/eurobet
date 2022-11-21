@@ -139,25 +139,48 @@ center b {
 }
 
 .banner-pad {
-  padding: 50px 50px;
+  padding: 20px 20px;
 }
 
-
-.main-banner h6 {
-  font-size: 20px;
-  color: #fff;
-  font-weight: 400;
-  margin-bottom: 25px;
-}
 
 .main-banner h4 {
-  font-size: 30px;
-  color: white;
+  font-size: 30px;;
   text-transform: uppercase;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
+  font-weight: bolder;
+  color: white;
+}
+.betslip {
+  position: fixed;
+  bottom: 1vh;
+  right: 2vh;
+
 }
 
-.main-banner h4 em {
-  font-style: normal;
-  color: #60ec90;
+input[type=text], input[type=search]{
+  border-radius: 30px;
+  padding: 10px;
+  border-style: hidden;
+}
+
+.result-score {
+  margin: auto;
+  padding: 20px;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.main-button a, button {
+  font-size: 14px;
+  color: #fff;
+  background-color: #5ee75e8d;
+  padding: 6px 15px;
+  display: inline-block;
+  border-radius: 15px;
+  font-weight: 300;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
 }

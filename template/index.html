@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block button %}
+<a class="btn btn-info" href="{% url 'result' %}">Check Results</a>
+{% endblock %}
+              
 
 {% block content %}
 <div class="container">
@@ -8,12 +12,11 @@
 
 </div>
 <!-- Button trigger modal -->
-<button style="position: fixed; bottom: 0; right: 0;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-primary betslip" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Betslip
 </button>
 
     <center><input type="text" id="acf" onchange="changeHandler()" placeholder="Input your bank details"></center><br>
-    <small style="color: red;" >Click on each match to expand selection*</small>
 <!-- Division one league -->
 {% if d1 %}
 <div class="container ">
@@ -50,19 +53,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                </div>
+<div class=" col bg-lightgrey rounded m-2 text-center">
+<p class="m-2">
+Expand Bet</p>
+</div>
+</div>
             </div>
 
         </div></a>
@@ -116,19 +111,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                </div>
+<div class=" col bg-lightgrey rounded m-2 text-center">
+<p class="m-2">
+Expand Bet</p>
+</div>
+</div>
             </div>
 
         </div></a>
@@ -180,19 +167,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                </div>
+<div class=" col bg-lightgrey rounded m-2 text-center">
+<p class="m-2">
+Expand Bet</p>
+</div>
+</div>
             </div>
 
         </div></a>
@@ -244,19 +223,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                </div>
+<div class=" col bg-lightgrey rounded m-2 text-center">
+<p class="m-2">
+Expand Bet</p>
+</div>
+</div>
             </div>
 
         </div></a>
@@ -307,19 +278,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                </div>
+<div class=" col bg-lightgrey rounded m-2 text-center">
+<p class="m-2">
+Expand Bet</p>
+</div>
+</div>
             </div>
 
         </div></a>
@@ -372,19 +335,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                </div>
+<div class=" col bg-lightgrey rounded m-2 text-center">
+<p class="m-2">
+Expand Bet</p>
+</div>
+</div>
             </div>
 
         </div></a>
@@ -435,19 +390,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                    <div class=" col bg-lightgrey rounded m-2 text-center">
-                                <p class="m-0"><small>Total Wins </small></p>
-                                <p class="m-0"><small ><b>10</b></small></p>
-                            </div>
-                </div>
+<div class=" col bg-lightgrey rounded m-2 text-center">
+<p class="m-2">
+Expand Bet</p>
+</div>
+</div>
             </div>
 
         </div></a>
@@ -465,40 +412,46 @@
 
 
   <!-- Modal -->
+  
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" >
       <div class="modal-content">
-        
+        <div id="slip">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Bet Slip </h5>           
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" >
-            <div id="slip">
-                Account Details: <b id="account"></b>
+            
+                Account Details: <b id="account" style="white-space: wrap;"></b>
             {% for bet in bets %}
             
+            
                 <p id="game{{bet.pk}}" class="rounded"></p>
+            
+                
 
                 
             
             {% endfor %}
-        </div>
+        
             {% csrf_token %}
-            <button type="button" onclick="printBetSlip()" class="btn btn-primary" data-bs-dismiss="modal">Download</button>
+            <button type="button" onclick="printBetSlip()" class="btn btn-primary" >Download</button>
             
             <h4 class="float-end bg-success rounded p-1 text-light" id="odds">0</h4>
         </div>
+    </div>
         <small style="color: red;"><center>Kindly download your betslip*</center></small>
         <div class="modal-footer">
             
             
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <a type="button" id="placeBet" href="wa.me/2349060326055" class="btn btn-success" >Share Admin</a>
+          <a type="button" id="placeBet" href="https://wa.me/2349060326055" class="btn btn-success" >Share Admin</a>
         </div>
       </div>
     </div>
   </div>
+
 </form>
 
 {% endblock %}
@@ -506,9 +459,9 @@
 {% for bet in bets %}
 <script>
     function check{{bet.pk}}(game, myVal) {
-
+       
         val = document.getElementById("game{{bet.pk}}")
-        val.innerHTML = game
+        val.innerHTML = game        
         val.style.border = "2px solid green"
         val.style.padding = "10px"
         document.getElementById("clicked{{bet.pk}}").className = "fa fa-check text-danger"
@@ -560,11 +513,12 @@
         else if (document.getElementById('ycu{{bet.pk}}').value === myVal){
             mul = parseFloat(document.getElementById('ycu{{bet.pk}}').value)
         }
-       
-        document.getElementById('odds').innerHTML = parseFloat(document.getElementById('odds').innerHTML) + mul
-        console.log(document.getElementById('odds').innerHTML)
+    
+        document.getElementById('odds').innerHTML = parseFloat(document.getElementById('odds').innerHTML) + mul            
 
-    } 
+    }
+            
+    
 </script>
 
 <script>
@@ -580,16 +534,37 @@
 
 <script>
     function printBetSlip() {
+        
+        if(document.getElementsByClassName('betslip-count').length < 1){
+            alert("Please pick up to 8 games before downloading betslip")
+        }
+        else if(document.getElementById('acf').value == ''){
+            alert("Please fill in your bank details")
+        }else{
+            
         el = document.getElementById('slip').innerHTML
         a = window.open('', '', 'height=2000, width=500')
-        a.document.write(el)
+        a.document.write('<html>')
+            a.document.write('<head>') 
+                a.document.write('<meta charset="utf-8">')
+                a.document.write('<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">')
+                a.document.write(`<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">`)               
+            a.document.write('</head>')
+            a.document.write('<body>')
+                a.document.write(el)
+            a.document.write('</body>')
+        a.document.write('</html>')
         a.print()
         
+        
     } 
+    console.log(document.getElementsByClassName('betslip-count').length)
+}
 </script>
 
 <script>
     function changeHandler() {
+        
         document.getElementById('account').innerHTML = document.getElementById('acf').value
         
     } 

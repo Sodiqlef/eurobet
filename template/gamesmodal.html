@@ -1,4 +1,5 @@
 <!-- Modal -->
+<form>
 
 <div class="modal fade " id="exampleModal{{bet.pk}}" tabindex="-1" aria-labelledby="exampleModalLabel{{bet.pk}}" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -23,7 +24,7 @@
                     {{bet.home}}
                     <input type="radio" id="home{{bet.pk}}" onclick="check{{bet.pk}}(
                         (document.getElementById('win').innerHTML +
-                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' 
+                        `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>` 
                         + '<b>HOME</b>' + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' + 
                         `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
                         value="{{bet.home}}" name="game{{bet.pk}}" >
@@ -34,7 +35,7 @@
                     {{bet.draw}}
                     <input type="radio" id="draw{{bet.pk}}" onclick="check{{bet.pk}}(
                         (document.getElementById('win').innerHTML + 
-                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>'
+                        `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>` 
                         + '<b>DRAW</b>' + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' 
                         + `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
                         value="{{bet.draw}}" name="game{{bet.pk}}">
@@ -45,7 +46,7 @@
                     {{bet.away}}
                         <input type="radio" id="away{{bet.pk}}" onclick="check{{bet.pk}}(
                             (document.getElementById('win').innerHTML +
-                            '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>'
+                            `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>` 
                             + '<b>AWAY </b>' + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                                 `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"
                                 value="{{bet.away}}" name="game{{bet.pk}}">
@@ -62,7 +63,7 @@
                     {{bet.home_h1}}
                     <input type="radio" id="home.{{bet.pk}}" onclick="check{{bet.pk}}(
                     (document.getElementById('winH').innerHTML +
-                    '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                    `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>`  +
                     '<b>HOME </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                         `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"
                         value="{{bet.home_h1}}" name="game{{bet.pk}}">
@@ -72,7 +73,7 @@
                     {{bet.draw_h1}}
                     <input type="radio" id="draw.{{bet.pk}}" onclick="check{{bet.pk}}(
                     (document.getElementById('winH').innerHTML +
-                    '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                    `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>`  +
                     '<b>DRAW </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                         `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
                         value="{{bet.draw_h1}}" name="game{{bet.pk}}">
@@ -82,7 +83,7 @@
                     {{bet.away_h1}}
                         <input type="radio" id="away.{{bet.pk}}" onclick="check{{bet.pk}}(
                         (document.getElementById('winH').innerHTML +
-                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                        `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>`  +
                         '<b>AWAY </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                             `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
                             value="{{bet.away_h1}}" name="game{{bet.pk}}">
@@ -100,7 +101,7 @@
                     {{bet.home_cleansheet_yes}}
                     <input type="radio" id="yes{{bet.pk}}" onclick="check{{bet.pk}}(
                         (document.getElementById('homecs').innerHTML +
-                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                        `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>`  +
                         '<b>YES </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                         `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"
                         value="{{bet.home_cleansheet_yes}}" name="game{{bet.pk}}">
@@ -111,7 +112,7 @@
                     {{bet.home_cleansheet_no}}
                         <input type="radio" id="no{{bet.pk}}" onclick="check{{bet.pk}}(
                             (document.getElementById('homecs').innerHTML +
-                            '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                            `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>`  +
                             '<b>NO </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                             `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
                             value="{{bet.home_cleansheet_no}}" name="game{{bet.pk}}">
@@ -129,7 +130,7 @@
                 {{bet.away_cleansheet_yes}}
                 <input type="radio" id="yes.{{bet.pk}}" onclick="check{{bet.pk}}(
                     (document.getElementById('awaycs').innerHTML +
-                    '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                    `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>`  +
                     '<b>YES </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                      `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"  
                      value="{{bet.away_cleansheet_yes}}" name="game{{bet.pk}}">
@@ -140,7 +141,7 @@
                 {{bet.away_cleansheet_no}}
                     <input type="radio" id="no.{{bet.pk}}" onclick="check{{bet.pk}}(
                         (document.getElementById('awaycs').innerHTML +
-                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                        `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>`  +
                         '<b>NO </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                          `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
                          value="{{bet.away_cleansheet_no}}" name="game{{bet.pk}}">
@@ -158,7 +159,7 @@
                     {{bet.score_home_over_yes}}
                     <input type="radio" id="hover{{bet.pk}}" onclick="check{{bet.pk}}(
                         (document.getElementById('hoverunder').innerHTML +
-                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                        `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>`  +
                         '<b>YES </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                         `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"
                         value="{{bet.score_home_over_yes}}" name="game{{bet.pk}}">
@@ -169,7 +170,7 @@
                     {{bet.score_home_over_no}}
                         <input type="radio" id="hunder{{bet.pk}}" onclick="check{{bet.pk}}(
                             (document.getElementById('hoverunder').innerHTML +
-                            '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                            `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>`  +
                             '<b>NO </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                             `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
                             value="{{bet.score_home_over_no}}" name="game{{bet.pk}}">
@@ -187,7 +188,7 @@
                     {{bet.score_away_over_yes}}
                     <input type="radio" id="aover{{bet.pk}}" onclick="check{{bet.pk}}(
                         (document.getElementById('aoverunder').innerHTML +
-                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                        `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>`  +
                         '<b>YES </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                         `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"
                         value="{{bet.score_away_over_yes}}" name="game{{bet.pk}}">
@@ -198,7 +199,7 @@
                     {{bet.score_away_over_no}}
                         <input type="radio" id="aunder{{bet.pk}}" onclick="check{{bet.pk}}(
                             (document.getElementById('aoverunder').innerHTML +
-                            '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                            `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>`  +
                             '<b>NO </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                             `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
                             value="{{bet.score_home_over_no}}" name="game{{bet.pk}}">
@@ -216,7 +217,7 @@
                     {{bet.total_yc_over_yes}}
                     <input type="radio" id="yco{{bet.pk}}" onclick="check{{bet.pk}}(
                         (document.getElementById('totalyc').innerHTML +
-                        '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                        `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>` +
                         '<b>YES </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                         `<b class='px-2 border border-success'>${this.value}</b>`), this.value)"
                         value="{{bet.total_yc_over_yes}}" name="game{{bet.pk}}">
@@ -227,7 +228,7 @@
                     {{bet.total_yc_over_no}}
                         <input type="radio" id="ycu{{bet.pk}}" onclick="check{{bet.pk}}(
                             (document.getElementById('totalyc').innerHTML +
-                            '<br><small>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>' +
+                            `<br><small class='betslip-count'>{{bet.home_name.name| title}} vs {{bet.away_name.name| title}}</small><br>`  +
                             '<b>NO </b>'  + ' ' +  `<i class='fas fa-arrow-right fa-fw'></i>` + ' ' +
                             `<b class='px-2 border border-success'>${this.value}</b>`), this.value)" 
                             value="{{bet.total_yc_over_no}}" name="game{{bet.pk}}">
@@ -257,3 +258,4 @@
     </div>
   </div>
 </div>
+</form>
