@@ -299,21 +299,21 @@ Expand Bet</p>
 
 
 
-<!-- Europa League -->
-{% if el %}
+<!-- International Match -->
+{% if im %}
 <div class="container ">
     <br>
-    <button class="btn btn-success  dropdown-toggle"  data-bs-toggle="collapse" data-bs-target="#EuropaLeague" aria-expanded="false" aria-controls="collapseExample">
-            <b>Europa League <i class="fas fa-fw "></i></b></button><br>
+    <button class="btn btn-success  dropdown-toggle"  data-bs-toggle="collapse" data-bs-target="#InternationalMatch" aria-expanded="false" aria-controls="collapseExample">
+            <b>International Match <i class="fas fa-fw "></i></b></button><br>
             
                 
     {% for bet in bets %}
     
-    {% if bet.competition == "Europa League" %}
+    {% if bet.competition == "International Match" %}
     
     
     
-        <a type="button" class="btn games-link " data-bs-toggle="modal" data-bs-target="#exampleModal{{bet.pk}}"><div class="row container-fluid collapse show" id="EuropaLeague" >
+        <a type="button" class="btn games-link " data-bs-toggle="modal" data-bs-target="#exampleModal{{bet.pk}}"><div class="row container-fluid collapse show" id="InternationalMatch" >
             
             <div class="col-sm rounded m-2" style="background-color: white;">
                 <div class="row mt-2">
@@ -410,11 +410,67 @@ Expand Bet</p>
 {% endif %}
 
 
+<!-- Europa League -->
+{% if el %}
+<div class="container ">
+    <br>
+    <button class="btn btn-success  dropdown-toggle"  data-bs-toggle="collapse" data-bs-target="#EuropaLeague" aria-expanded="false" aria-controls="collapseExample">
+            <b>Europa League <i class="fas fa-fw "></i></b></button><br>
+            
+                
+    {% for bet in bets %}
+    
+    {% if bet.competition == "Europa League" %}
+    
+    
+    
+        <a type="button" class="btn games-link " data-bs-toggle="modal" data-bs-target="#exampleModal{{bet.pk}}"><div class="row container-fluid collapse show" id="EuropaLeague" >
+            
+            <div class="col-sm rounded m-2" style="background-color: white;">
+                <div class="row mt-2">
+                    <strong id="clicked{{bet.pk}}" aria-hidden="true" style="font-size: 33px;"></strong>
+                    <div class="col ">
+                        <center><img src="{{bet.home_name.image.url}}" width="33"><br>
+                        <b>{{bet.home_name.name}}</b><br>
+
+                            </center>
+                    </div>
+                    <div class="col mt-2" ><center ><small>{{bet.date.date}} <br> {{bet.date.time}}</small>
+
+                    </center></div>
+                    <div class="col">
+                        <center><img src="{{bet.away_name.image.url}}" width="33"><br>
+                        <b>{{bet.away_name.name}}</b><br>
+
+                        </center>
+                    </div>
+                </div>
+                <div class="row">
+<div class=" col bg-lightgrey rounded m-2 text-center">
+<p class="m-2">
+Expand Bet</p>
+</div>
+</div>
+            </div>
+
+        </div></a>
+    {% include './gamesmodal.html' %}
+    
+    {% endif %}
+    {% endfor %}
+  
+
+    
+
+    </div>
+{% endif %}
+
+
 
   <!-- Modal -->
   
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" >
+    <div class="modal-dialog modal-dialog-scrollable" >
       <div class="modal-content">
         <div id="slip">
         <div class="modal-header">
@@ -422,37 +478,46 @@ Expand Bet</p>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" >
-            
-                Account Details: <b id="account" style="white-space: wrap;"></b>
+            Account Details: <b id="account"></b><br>
+             Betslip ID:   {{csrf_token | slice:':20'}}
             {% for bet in bets %}
-            
-            
                 <p id="game{{bet.pk}}" class="rounded"></p>
             
-                
-
-                
-            
-            {% endfor %}
+                {% endfor %}
         
             {% csrf_token %}
-            <button type="button" onclick="printBetSlip()" class="btn btn-primary" >Download</button>
+            <div class="row">
+                <div class="col">
+                    <h4 class=" bg-success rounded p-1 text-light" id="odds">0</h4>
+                </div>
+                <div class="col">
+                    <input style="width: 125px;" type="number" placeholder="Input amount" class=" text-success rounded p-1"  id="stake"  oninput="stakeHandler()">
+                </div>
+                <div class="col">
+                    <h4 class=" bg-success rounded p-1 text-light" id="total">0</h4>
+                </div>
+                
+            </div>
             
-            <h4 class="float-end bg-success rounded p-1 text-light" id="odds">0</h4>
         </div>
     </div>
-        <small style="color: red;"><center>Kindly download your betslip*</center></small>
-        <div class="modal-footer">
-            
-            
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <a type="button" id="placeBet" href="https://wa.me/2349060326055" class="btn btn-success" >Share Admin</a>
+
+        
+            <small style="color: red;" class="container"><center>Kindly download betslip share with admin together with your prove of payment*</center></small>
+            <hr>
+            <center class="pb-4 pt-2">
+                
+                
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" onclick="printBetSlip()" class="btn btn-primary" >Download</button>
+            <a type="button" id="placeBet" href="https://wa.me/2349030799624?text=This%20is%20my%20betslip%20and%20prove%20of%20payment%20with%20id%20{{csrf_token | slice:'20'}}" class="btn btn-success" >Share Admin</a>
+            </center>
         </div>
       </div>
     </div>
-  </div>
 
-</form>
+
+
 
 {% endblock %}
 {% block script %}
@@ -514,7 +579,9 @@ Expand Bet</p>
             mul = parseFloat(document.getElementById('ycu{{bet.pk}}').value)
         }
     
-        document.getElementById('odds').innerHTML = parseFloat(document.getElementById('odds').innerHTML) + mul            
+        x = parseFloat(document.getElementById('odds').innerHTML) + mul  
+        document.getElementById('odds').innerHTML = x.toFixed(2)
+               
 
     }
             
@@ -535,7 +602,7 @@ Expand Bet</p>
 <script>
     function printBetSlip() {
         
-        if(document.getElementsByClassName('betslip-count').length < 1){
+        if(document.getElementsByClassName('betslip-count').length < 8){
             alert("Please pick up to 8 games before downloading betslip")
         }
         else if(document.getElementById('acf').value == ''){
@@ -548,7 +615,8 @@ Expand Bet</p>
             a.document.write('<head>') 
                 a.document.write('<meta charset="utf-8">')
                 a.document.write('<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">')
-                a.document.write(`<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">`)               
+                a.document.write(`<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">`)   
+                
             a.document.write('</head>')
             a.document.write('<body>')
                 a.document.write(el)
@@ -568,6 +636,17 @@ Expand Bet</p>
         document.getElementById('account').innerHTML = document.getElementById('acf').value
         
     } 
+</script>
+
+<script>
+    function stakeHandler(){
+        y = parseFloat(document.getElementById('stake').value) * parseFloat(document.getElementById('odds').innerHTML) * 0.75
+        document.getElementById('total').innerHTML = y.toFixed(0)
+        if ( isNaN(document.getElementById('total').innerHTML)){
+            document.getElementById('total').innerHTML = 0
+        }
+        
+    }
 </script>
 {% endfor %}
 {% endblock %}

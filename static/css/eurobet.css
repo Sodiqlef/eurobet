@@ -184,3 +184,13 @@ input[type=text], input[type=search]{
   position: relative;
   overflow: hidden;
 }
+.ht{
+  font-weight: 500;
+  font-size: small;
+}
+footer a {
+  color: #0f0;
+}
+footer a:hover {
+  color: green;
+}

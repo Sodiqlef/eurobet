@@ -47,6 +47,10 @@
           <div class="col-lg-7">
             <div class="header-text">
                 <h4>Play and win on all possible selections in the eurosport game</h4>
+                        <!-- Button trigger modal -->
+<button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
+    Terms & Conditions
+  </button>
                 {% block button %}
                 {% endblock %}
                 
@@ -58,10 +62,96 @@
       <!-- ***** Banner End ***** -->
 
 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Eurobet Rules and regulations</h5>
+          <button type="button" class="btn-close"  data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="white-space: pre-wrap;">
+<center><strong>💰EUROSPORT BETTING RULES AND REGULATIONS💰</strong></center>
 
+            1. These Betting Rules are inseparably linked to our Terms & Conditions, of which they form a part, and acceptance of these Betting Rules is a prerequisite to account registration. Any capitalized terms used herein which are not defined shall take their meaning from the Terms & Conditions.
+            
+            2. The minimum amount for a bet is #100(Hundred Naira). Your maximum amount for a bet differs between sports, leagues and bets. When placing a bet. We make no guarantee that any bet placed within or for the maximum stake shall be accepted.
+            
+            3. EuroSport Bet reserves right to refuse the whole or any part of any bet request for any reason and at our sole discretion. Individual bet requests may be reviewed and an alternative price or stake offered at our sole discretion.
+            
+            4. EuroSport Bet accepts bets made online and downloaded to share the admin. Bets are not accepted in any other form (email, telephone, fax, etc.) and if received will be void, win or lose.
+            
+            5. EuroSport Bet reserves the right to refuse/cancel any bet or part of a bet before the game starts and to make ambiguous bets void, without providing any justification.
+            
+            6. Customers cannot cancel or change a bet once the bet has been placed and confirmed. Bets will be accepted up to the advertised start time and No refund.
+            
+            7.  Where we have reason to believe that a bet is placed after the outcome of an event is known or after the selected participant or team has gained a material advantage (e.g. Questions & Answers, sending off etc.) we reserve the right to void the bet, win or lose.
+            
+            8. EuroSport Bet reserves the right to withhold payment and to declare bets on an event void if we have evidence that the following has occurred: (i) the integrity of the event has been called into question or (ii) matchrigging has taken place. Evidence may be based on the size, volumes or pattern of bets placed with EuroSport Bet.
+            
+            9.When an event is Walk-Over, all related bets odds will be remove automatically and remaining odds will be calculated if the customer wins.
+            
+            10. Multiple bets that combine different selections within the same event are not accepted where the outcome of one affects or is affected by the other. If such a bet is taken in error, the bet will be cancelled.
+            
+            11. EuroSport Bet offers you the ability to bet and earn a small funds and makes our players and coaches happy. We do make every effort to ensure all live betting information is accurate, there may be situations where such information is incorrect, due to delays or otherwise. When checking match results betting odds or any other live event markets, please be aware that such information is provided as a guide only and we accept no liability for the outcome of any inaccuracies which may occur. It is the sole responsibility of the customer to check such information is accurate at the time of publication.
+            
+            12. The official result is final for settlement purposes except where specific rules state the contrary. Winnings will be credited to the Customer’s account following confirmation of the final result.
+            
+            13. EuroSport Bet reserves the right to void any or all bets made by any person or group of persons acting in an attempt to defraud us.
+            
+            14. EuroSport Bet reserves the right to void any bet that may have been accepted when the customer do not provide proof of payment to cover the bet. EuroSport Bet reserves the right to cancel any bet that may have been accepted retroactively.
+            
+            15.The maximum total winnings to any customer on any calendar day for bets placed with EuroSport Bet is #50,000(Fifty Thousand Naira) or equivalent (hereafter the “Maximum Daily Payout”
+            
+            16. A number of bets may be treated as being one when a Customer places multiple copies of the same bet. When this occurs all bets may be voided apart from the first bet struck.
+            
+            17. EuroSport Bet allows only one bet slip per person. Any subsequent bet slip submitted under, EuroSport Bet reserves the right to reclaim any winnings attained by these and we reserve the right to withhold all or part of your balance pay outs, bonuses, any winnings that are attained by these means.
+            
+            18. EuroSport Bet reserves the right to deduct VAT of 25% to any total winnings from Customers on any bets placed.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Accept</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
     {% block content %}
     {% endblock %}
+    
+    <footer ><center class="bg-secondary text-light">
+        <hr>
+        <div class="container">
+    
+          <div class="row">
+            <div class="col-lg-12">
+    
+              <p>Copyright © 2022 <a href="#">Eurosport</a> Company.<br><br> All rights reserved.
+              
+              <br>Follow  <a href="https://templatemo.com" target="_blank" >
+                      <i class="fab fa-twitter"></i>
+                  </a>
+    
+                   <a href="https://templatemo.com" target="_blank" >
+                  <i class="fab fa-facebook"></i>
+                       </a>
+                  <a href="https://templatemo.com" target="_blank" >
+                      <i class="fab fa-whatsapp"></i>
+                  </a>
+              </p>
+            </div>
+          </div>
+        </div>
+    
+    
+
+
+  
+
+        
+    </center></footer>
             <!-- Scripts -->
         <!-- Bootstrap core JavaScript -->
         <script src="{% static 'js/jquery.min.js' %}"></script>
@@ -75,6 +165,7 @@
     {% block script %}
 
     {% endblock %}
+
 
     </body>
 </html>

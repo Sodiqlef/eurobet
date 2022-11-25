@@ -38,9 +38,12 @@ def result(request):
     
     search = request.GET.get('match')
     if search:
-        queryset = Bet.objects.filter(Q(home_name__name__icontains=search)).order_by('-date')
-        bets = paging(25, queryset, request)
+        queryset = Bet.objects.filter(played=True).filter(Q(home_name__name__icontains=search)).order_by('-date')
+        bets = paging(15, queryset, request)
     else:
-        queryset = Bet.objects.all().order_by('-date')
-        bets = paging(20, queryset, request)
+        queryset = Bet.objects.filter(played=True).order_by('-date')
+        bets = paging(15, queryset, request)
     return render(request, 'result.html', {'bets': bets})
+
+def error_404_view(request, exception):
+    return render(request, '404.html')

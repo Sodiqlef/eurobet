@@ -23,3 +23,5 @@ urlpatterns = [
     path('result/', views.result, name='result'),
 
 ]
+
+handler404 = 'main.views.error_404_view'
