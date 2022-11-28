@@ -194,3 +194,9 @@ footer a {
 footer a:hover {
   color: green;
 }
+.bg-white{
+  color: white
+}
+.show-print{
+  display: none;
+}

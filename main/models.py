@@ -2,6 +2,7 @@ from email.mime import image
 from email.policy import default
 from django.db import models
 from cloudinary.models import CloudinaryField
+from django.forms import CharField, IntegerField
 
 # Create your models here.
 
@@ -56,4 +57,6 @@ class Bet(models.Model):
     def __str__(self):
         return f'{self.home_name} vs {self.away_name}'
 
- 
+
+class Selection(models.Model) :
+    selection = models.IntegerField()

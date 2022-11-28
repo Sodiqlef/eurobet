@@ -16,7 +16,7 @@
     Betslip
 </button>
 
-    <center><input type="text" id="acf" onchange="changeHandler()" placeholder="Input your bank details"></center><br>
+    <center><input type="text" id="acf" onchange="changeHandler()" placeholder="Name, Number, Bank"></center><br>
 <!-- Division one league -->
 {% if d1 %}
 <div class="container ">
@@ -470,14 +470,14 @@ Expand Bet</p>
   <!-- Modal -->
   
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" >
+    <div class="modal-dialog" >
       <div class="modal-content">
         <div id="slip">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Bet Slip </h5>           
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" >
+        <div class="modal-body">
             Account Details: <b id="account"></b><br>
              Betslip ID:   {{csrf_token | slice:':20'}}
             {% for bet in bets %}
@@ -487,15 +487,20 @@ Expand Bet</p>
         
             {% csrf_token %}
             <div class="row">
-                <div class="col">
-                    <h4 class=" bg-success rounded p-1 text-light" id="odds">0</h4>
-                </div>
-                <div class="col">
-                    <input style="width: 125px;" type="number" placeholder="Input amount" class=" text-success rounded p-1"  id="stake"  oninput="stakeHandler()">
-                </div>
-                <div class="col">
-                    <h4 class=" bg-success rounded p-1 text-light" id="total">0</h4>
-                </div>
+                <fieldset class="col">
+                    Odds:
+                    <h2 class=" bg-success rounded p-1 text-light" id="odds"> 0</h2>
+                </fieldset>
+                <fieldset class="col">
+                    Stake:
+                    <input style="width: 100px;" type="number" placeholder="Amount" class=" text-success rounded p-1 hide-print"  id="stake"  oninput="stakeHandler()"><br>
+                    <h2 class="bg-success rounded p-1 text-light show-print" id="show-print"></h2>
+
+                </fieldset>
+                <fieldset class="col">
+                    Return:
+                    <h2 class=" bg-success rounded p-1 text-light" id="total">0</h2>
+                </fieldset>
                 
             </div>
             
@@ -503,7 +508,7 @@ Expand Bet</p>
     </div>
 
         
-            <small style="color: red;" class="container"><center>Kindly download betslip share with admin together with your prove of payment*</center></small>
+            <small style="color: red;" class="container"><center>Kindly download betslip. Share with admin together with your prove of payment*</center></small>
             <hr>
             <center class="pb-4 pt-2">
                 
@@ -599,11 +604,11 @@ Expand Bet</p>
     } 
 </script>
 
-<script>
+<script>    
     function printBetSlip() {
         
-        if(document.getElementsByClassName('betslip-count').length < 8){
-            alert("Please pick up to 8 games before downloading betslip")
+        if(document.getElementsByClassName('betslip-count').length < parseInt('{{selected}}') ){
+            alert("Please pick up to {{selected}} games before downloading betslip")
         }
         else if(document.getElementById('acf').value == ''){
             alert("Please fill in your bank details")
@@ -615,7 +620,11 @@ Expand Bet</p>
             a.document.write('<head>') 
                 a.document.write('<meta charset="utf-8">')
                 a.document.write('<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">')
-                a.document.write(`<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">`)   
+                a.document.write(`<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">`) 
+                a.document.write('<style>')  
+                    a.document.write('.hide-print { display: none; }')
+                    a.document.write('.show-print { display: block; }')
+                a.document.write('</style>')
                 
             a.document.write('</head>')
             a.document.write('<body>')
@@ -642,6 +651,7 @@ Expand Bet</p>
     function stakeHandler(){
         y = parseFloat(document.getElementById('stake').value) * parseFloat(document.getElementById('odds').innerHTML) * 0.75
         document.getElementById('total').innerHTML = y.toFixed(0)
+        document.getElementById('show-print').innerHTML = parseFloat(document.getElementById('stake').value)
         if ( isNaN(document.getElementById('total').innerHTML)){
             document.getElementById('total').innerHTML = 0
         }

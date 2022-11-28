@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Bet, Club
+from .models import Bet, Club, Selection
 from  django.db.models import Q
 
 # Create your views here.
@@ -31,8 +31,10 @@ def home(request):
     sc = Bet.objects.filter(played=False).filter(competition="Super Cup").first()
     im = Bet.objects.filter(played=False).filter(competition="International Match").first()
     bets = Bet.objects.filter(played=False).order_by('-date')
+    selected = Selection.objects.first().selection
     return render(request, 'index.html', {'bets': bets, 'd1': d1, 'd2': d2, 'd1c': d1c,
-                                            'd2c': d2c, 'cl': cl, 'el': el, 'sc': sc, 'im': im})
+                                            'd2c': d2c, 'cl': cl, 'el': el, 'sc': sc, 
+                                            'im': im, 'selected': selected})
 
 def result(request):
     
